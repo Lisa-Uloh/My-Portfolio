@@ -63,10 +63,15 @@
 
     disableAllButtons(form);
     var url = form.action;
+    //var url2 = form.action;
+
     var xhr = new XMLHttpRequest();
+   // var xhl = new XMLHttpRequest();
     xhr.open('POST', url);
+    //xhl.open('GET', url2);
     // xhr.withCredentials = true;
     xhr.setRequestHeader("Content-Type", "application/x-www-form-urlencoded");
+    //xhl.setRequestHeader("Content-Type", "application/x-www-form-urlencoded")
     xhr.onreadystatechange = function() {
         if (xhr.readyState === 4 && xhr.status === 200) {
           form.reset();
@@ -81,9 +86,7 @@
         }
     };
     // url encode form data for sending as post data
-    var encoded = Object.keys(data).map(function(k) {
-        return encodeURIComponent(k) + "=" + encodeURIComponent(data[k]);
-    }).join('&');
+  
     xhr.send(encoded);
   }
   
